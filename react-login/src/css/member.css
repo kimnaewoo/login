@@ -69,3 +69,10 @@
   background-color: #dadada;
   color: #fff;
 }
+.msg {
+  top: 0%;
+  position: relative;
+  left: 10%;
+  width: 50%;
+  font-weight: bold;
+}

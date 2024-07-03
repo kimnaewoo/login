@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../css/index.css';
+import '../css/member.css';
 import { useContext, useState } from 'react';
 import { Con } from '../modules/Context';
 import { initData } from '../data/member';
@@ -145,19 +145,56 @@ export function Member() {
       <div className="titlewrap">회원가입</div>
 
       <div className="contentwrap">
+        {/* 아이디 */}
         <div className="inputwrap">
-          <input className="input" placeholder="아이디를 입력해주세요." />
+          <input className="input" placeholder="아이디를 입력해주세요." value={userId} onChange={changeUserId} />
+          {userIdError && (
+            <div className="msg">
+              <small style={{ color: 'red', fontSize: '10px', left: '10%' }}>{idMsg}</small>
+            </div>
+          )}
+          {!userIdError && userId && (
+            <div className="msg" style={{ left: '7%' }}>
+              <small style={{ color: 'green', fontSize: '10px' }}>{msgId[2]}</small>
+            </div>
+          )}
         </div>
+        {/* 비밀번호 */}
         <div style={{ marginTop: '35px' }} className="inputwrap">
-          <input className="input" placeholder="영문, 숫자, 특수문자 포함 8자 이상" />
+          <input className="input" placeholder="영문, 숫자, 특수문자 포함 8자 이상" value={pwd} onChange={changePwd} />
+          {pwdError && (
+            <div className="msg" style={{ left: '1%', width: '80%' }}>
+              <small style={{ color: 'red', fontSize: '10px' }}>{msgEtc.pwd}</small>
+            </div>
+          )}
         </div>
+        {/* 비밀번호 확인 */}
         <div style={{ marginTop: '35px' }} className="inputwrap">
-          <input className="input" placeholder="이름을 입력해주세요." />
+          <input className="input" placeholder="비밀번호를 확인해주세요." value={chkpwd} onChange={changeChkPwd} />
+          {chkpwdError && (
+            <div className="msg" style={{ left: '5%' }}>
+              <small style={{ color: 'red', fontSize: '10px' }}>{msgEtc.confpwd}</small>
+            </div>
+          )}
         </div>
+        {/* 이름 */}
         <div style={{ marginTop: '35px' }} className="inputwrap">
-          <input className="input" placeholder="이메일을 입력해주세요." />
+          <input className="input" placeholder="이름을 입력해주세요." value={userName} onChange={changeUserName} />
+          {userNameError && (
+            <div className="msg" style={{ left: '17%' }}>
+              <small style={{ color: 'red', fontSize: '10px' }}>{msgEtc.req}</small>
+            </div>
+          )}
         </div>
-        <div className="errormessagewrap"></div>
+        {/* 이메일 */}
+        <div style={{ marginTop: '35px' }} className="inputwrap">
+          <input className="input" placeholder="이메일을 입력해주세요." value={email} onChange={changeEmail} />
+          {emailError && (
+            <div className="msg" style={{ left: '9%' }}>
+              <small style={{ color: 'red', fontSize: '10px' }}>{msgEtc.email}</small>
+            </div>
+          )}
+        </div>
       </div>
       <Link to="/">
         <button className="bottombutton">돌아가기</button>
