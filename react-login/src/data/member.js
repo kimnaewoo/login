@@ -10,17 +10,17 @@ const initData = () => {
             [
                 {
                     "idx": "1",
-                    "uid":"admin",
+                    "uid":"developer",
                     "pwd":"1111",
-                    "unm":"Administrator",
-                    "eml":"admin@dc.com"
+                    "unm":"kimnaewoo",
+                    "eml":"pront@end.com"
                 },
                 {
                     "idx": "2",
-                    "uid":"tomtom",
+                    "uid":"developer2",
                     "pwd":"1111",
-                    "unm":"Tom",
-                    "eml":"tom@gmail.com"
+                    "unm":"kimnaewoo",
+                    "eml":"pront@end.com"
                 }
             ]
         `

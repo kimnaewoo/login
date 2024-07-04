@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/member.css';
 import { useContext, useState } from 'react';
-import { Con } from '../modules/Context';
 import { initData } from '../data/member';
+// import { loginCon } from '../modules/Context';
 
 export function Member() {
-  const myCon = useContext(Con);
+  // const loginCon = useContext(loginCon);
 
   const [userId, setUserId] = useState('');
   const [pwd, setPwd] = useState('');
@@ -18,6 +18,8 @@ export function Member() {
   const [chkpwdError, setChkPwdError] = useState(false);
   const [userNameError, setUserNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+
+  const navigate = useNavigate();
 
   const msgId = ['5글자 이상 입력해주세요!', '중복된 아이디입니다!', '가입이 가능한 아이디입니다!'];
 
@@ -120,6 +122,7 @@ export function Member() {
   const onSubmit = (e) => {
     e.preventDefault();
     if (totalValid()) {
+      alert('회원가입이 완료되었습니다!');
       initData();
 
       let memData = localStorage.getItem('mem-data');
@@ -133,10 +136,9 @@ export function Member() {
       };
       memData.push(newData);
       localStorage.setItem('mem-data', JSON.stringify(memData));
-      document.querySelector('.sbtn').innerText = '님은 이제 회원입니다.';
-      myCon.chgPage('login', {});
+      navigate('/');
     } else {
-      alert('change your input!');
+      alert('입력란을 채워주세요!');
     }
   };
 
@@ -197,11 +199,11 @@ export function Member() {
         </div>
       </div>
       <Link to="/">
-        <button className="bottombutton">돌아가기</button>
+        <button className="bottombutton">아이디 가 있으신가요?</button>
       </Link>
       <div>
-        <button disabled={true} className="bottombutton">
-          확인
+        <button className="bottombutton" onClick={onSubmit}>
+          회원가입
         </button>
       </div>
     </div>
