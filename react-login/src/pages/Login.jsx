@@ -40,11 +40,11 @@ export default function Login() {
   const Data = JSON.parse(memData);
   const uids = Data.map((item) => item.uid);
   const pwds = Data.map((item) => item.pwd);
-  const isAnyidIncluded = uids.some((uid) => uids.includes(uid));
-  const isAnypwdIncluded = pwds.some((pwd) => pwds.includes(pwd));
+  const isAnyidIncluded = uids.includes(id);
+  const isAnypwdIncluded = pwds.includes(pwd);
 
   const onClickConfirmButton = () => {
-    if (idValid === isAnyidIncluded && pwdValid === isAnypwdIncluded) {
+    if (isAnyidIncluded && isAnypwdIncluded) {
       alert('로그인에 성공하였습니다!');
     } else {
       alert('등록되지 않은 회원입니다!');

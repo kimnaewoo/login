@@ -1,12 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import '../css/member.css';
-import { useContext, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { initData } from '../data/member';
-// import { loginCon } from '../modules/Context';
 
 export function Member() {
-  // const loginCon = useContext(loginCon);
-
   const [userId, setUserId] = useState('');
   const [pwd, setPwd] = useState('');
   const [chkpwd, setChkPwd] = useState('');
@@ -199,11 +196,11 @@ export function Member() {
         </div>
       </div>
       <Link to="/">
-        <button className="bottombutton">아이디 가 있으신가요?</button>
+        <button className="bottombutton">돌아가기</button>
       </Link>
       <div>
         <button className="bottombutton" onClick={onSubmit}>
-          회원가입
+          완료
         </button>
       </div>
     </div>
