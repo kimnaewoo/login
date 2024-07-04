@@ -10,7 +10,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route index element={<Login />} />
+        <Route path="login" index element={<Login />} />
         <Route path="member" element={<Member />} />
       </Routes>
     </BrowserRouter>
