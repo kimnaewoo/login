@@ -195,7 +195,7 @@ export function Member() {
           )}
         </div>
       </div>
-      <Link to="/">
+      <Link to="/login">
         <button className="bottombutton">돌아가기</button>
       </Link>
       <div>
