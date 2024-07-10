@@ -133,7 +133,7 @@ export function Member() {
       };
       memData.push(newData);
       localStorage.setItem('mem-data', JSON.stringify(memData));
-      navigate('/');
+      navigate('/login');
     } else {
       alert('입력란을 채워주세요!');
     }
